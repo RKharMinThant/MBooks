@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_background"
+    >
+
+    <View
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_height="65dp"
+        android:elevation="2dp"
+        android:background="@drawable/dialog_header_background" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:tint="@color/backgroundcolor"
+        android:id="@+id/image"
+        android:src="@drawable/ic_info_outline"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="13dp"
+        android:elevation="2dp"
+        tools:ignore="ContentDescription,RtlHardcoded" />
+
+    <TextView
+        android:text="Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dialogTitle"
+        android:textColor="@color/backgroundcolor"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/image"
+        android:elevation="2dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="21dp" />
+
+
+    <LinearLayout
+        android:id="@+id/msgBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/header"
+        android:layout_marginTop="2dp">
+
+        <TextView
+            android:id="@+id/dialogMsg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp"
+            android:text="Msg"
+            android:textSize="15sp"
+            android:textColor="@color/colorPrimaryDark"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btnBox"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/msgBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:background="@android:color/transparent">
+
+        <Button
+            android:id="@+id/dialogButtonOK"
+            android:layout_width="85dp"
+            android:layout_height="45dp"
+            android:text="OK"
+            android:textColor="@color/colorPrimaryDark"
+            android:background="@android:color/transparent"
+            tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+    </LinearLayout>
+
+</RelativeLayout>

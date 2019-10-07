@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MBooks</string>
+
+    <string name="toast_pick_file_error">Error Pick File</string>
+</resources>
