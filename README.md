@@ -1,5 +1,6 @@
 # MBooks
-Offline PDF Reader App for Programmers
+Offline PDF Reader App for Programmers<br>
+If you want to test it ? [Download Here](https://github.com/RKharMinThant/MBooks/releases/download/b1.0.2/MBook-v102-signed.apk)
 
 ## v1.0.1
 - added 5 books
