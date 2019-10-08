@@ -1,14 +1,10 @@
 package com.nobletecx.mbooks;
 
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.barteksc.pdfviewer.PDFView;
@@ -16,13 +12,10 @@ import com.github.barteksc.pdfviewer.listener.OnPageChangeListener;
 import com.github.barteksc.pdfviewer.listener.OnPageErrorListener;
 import com.github.barteksc.pdfviewer.listener.OnRenderListener;
 
-import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
-
 public class WPGuide extends AppCompatActivity implements OnPageChangeListener, OnPageErrorListener, OnRenderListener {
 
     private static String pdf = "Wordpress_Installation_Guide.pdf";
     PDFView pdfView;
-    TextView Name, Author, Subj;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,19 +24,12 @@ public class WPGuide extends AppCompatActivity implements OnPageChangeListener, 
 
         pdfView = findViewById(R.id.pdfView);
 
-
-        //check permission
-        int permissionCheck = ContextCompat.checkSelfPermission(this,
-                READ_EXTERNAL_STORAGE);
-
-        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(
-                    this,
-                    new String[]{READ_EXTERNAL_STORAGE},
-                    0
-            );
-
-            return;
+        //continuing full screen state
+        SharedPreferences sp = getSharedPreferences("appData",0);
+        boolean fullScreen = sp.getBoolean("isfullScreen",false);
+        if (fullScreen){
+            ActionBar actionBar = getSupportActionBar();
+            actionBar.hide();
         }
 
         //getting current page
@@ -65,6 +51,7 @@ public class WPGuide extends AppCompatActivity implements OnPageChangeListener, 
                     .spacing(10) // in dp
                     .load();
         } else {
+            //if nothing to continue, start from page 0
             pdfView.fromAsset(pdf)
                     //.pages(0, 2, 1, 3, 3, 3, 4) // all pages are displayed by default
                     .enableSwipe(true) // allows to block changing pages using swipe
@@ -79,7 +66,6 @@ public class WPGuide extends AppCompatActivity implements OnPageChangeListener, 
                     .spacing(10) // in dp
                     .load();
         }
-
     }
 
     @Override

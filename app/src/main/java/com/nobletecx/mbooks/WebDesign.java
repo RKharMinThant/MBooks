@@ -1,33 +1,21 @@
 package com.nobletecx.mbooks;
 
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.provider.OpenableColumns;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.barteksc.pdfviewer.PDFView;
 import com.github.barteksc.pdfviewer.listener.OnPageChangeListener;
 import com.github.barteksc.pdfviewer.listener.OnPageErrorListener;
 import com.github.barteksc.pdfviewer.listener.OnRenderListener;
-import com.shockwave.pdfium.PdfDocument;
-
-import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 
 public class WebDesign extends AppCompatActivity implements OnPageChangeListener, OnPageErrorListener, OnRenderListener {
 
     private static String pdf = "Learning Web Design - UThaungWin.pdf";
     PDFView pdfView;
-    TextView Name, Author, Subj;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -36,20 +24,14 @@ public class WebDesign extends AppCompatActivity implements OnPageChangeListener
 
         pdfView = findViewById(R.id.pdfView);
 
-
-        //check permission
-        int permissionCheck = ContextCompat.checkSelfPermission(this,
-                READ_EXTERNAL_STORAGE);
-
-        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(
-                    this,
-                    new String[]{READ_EXTERNAL_STORAGE},
-                    0
-            );
-
-            return;
+        //continuing full screen state
+        SharedPreferences sp = getSharedPreferences("appData",0);
+        boolean fullScreen = sp.getBoolean("isfullScreen",false);
+        if (fullScreen){
+            ActionBar actionBar = getSupportActionBar();
+            actionBar.hide();
         }
+
 
         //getting current page
         SharedPreferences sharedPreferences = getSharedPreferences("bookData", 0);
@@ -96,7 +78,7 @@ public class WebDesign extends AppCompatActivity implements OnPageChangeListener
     public void onPageChanged(int page, int pageCount) {
 
         ActionBar ab = getSupportActionBar();
-        ab.setTitle("Learning Web Design - UThaungWin");
+        ab.setTitle("Learning Web Design");
         ab.setSubtitle("Page: " + page + "/" + pageCount);
     }
 
