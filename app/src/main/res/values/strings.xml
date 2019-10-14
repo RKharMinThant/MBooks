@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">MBooks</string>
-
     <string name="toast_pick_file_error">Error Pick File</string>
+    <string name="rock_star_developer">RockStar Developer</string>
+    <string name="color_theory">Color Theory</string>
+    <string name="professional_web_developer">Professional Web Developer</string>
+    <string name="learning_web_design">Learning Web Design</string>
+    <string name="wordprees_installation_guide">Wordpress Installation Guide</string>
+    <string name="author_ei_maung">Author - U Ei Maung</string>
+    <string name="author_u_thaung_lwin">Author - U Thaung Lwin</string>
+    <string name="author_unknown">Author - Unknown</string>
+    <string name="author_u_thit_lwin_soe">Author - U Thit Lwin Soe</string>
 </resources>

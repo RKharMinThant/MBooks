@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.nobletecx.mbooks">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -10,9 +11,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".IndexActivity"
+            android:name=".ui.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,11 +22,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RockStarDev" android:parentActivityName=".IndexActivity"/>
-        <activity android:name=".ColorTheory" android:parentActivityName=".IndexActivity"/>
-        <activity android:name=".ProWebDev" android:parentActivityName=".IndexActivity"/>
-        <activity android:name=".WebDesign" android:parentActivityName=".IndexActivity"/>
-        <activity android:name=".WPGuide" android:parentActivityName=".IndexActivity" />
+        <activity android:name=".ui.RockStarDev" />
+        <!--        <activity android:name=".ui.MainActivity" />-->
+        <activity android:name=".ui.ColorTheory" />
+        <activity android:name=".ui.ProWebDev" />
+        <activity android:name=".ui.WebDesign" />
+        <activity android:name=".ui.WPGuide" />
 
 
     </application>

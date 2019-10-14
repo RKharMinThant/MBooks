@@ -1,0 +1,62 @@
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/rockStar"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="@dimen/img_icon"
+            android:layout_height="@dimen/img_icon"
+            android:layout_marginTop="@dimen/marginNormal"
+            android:background="@drawable/background_orange"
+            android:src="@drawable/ic_color_theory" />
+
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/textview_style_one"
+            android:layout_marginTop="10dp"
+            tools:text="Colour Theory" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="18dp"
+            android:orientation="horizontal"
+            android:weightSum="5">
+
+            <View
+                style="@style/horizontal_bar"
+                android:layout_gravity="center"
+                android:layout_weight="5" />
+
+            <TextView
+                android:id="@+id/tv_page_number"
+                style="@style/textview_style_three"
+                android:layout_marginStart="@dimen/marginNormal"
+                android:layout_marginLeft="@dimen/marginNormal"
+                tools:text="Page" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_author"
+            style="@style/textview_style_two"
+            android:gravity="center"
+            android:padding="@dimen/marginSmall"
+            tools:text="Author - U Thit Lwin Soe" />
+    </LinearLayout>
+</android.support.v7.widget.CardView>
