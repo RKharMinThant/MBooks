@@ -5,12 +5,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +28,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
+    ConstraintLayout constraintLayout;
     ArrayList<Book> bookList = new ArrayList<>();
     RecyclerViewAdapter adapter;
     private RecyclerViewAdapter.onRecyclerViewItemClickListener recyclerViewOnItemClickListener = new RecyclerViewAdapter.onRecyclerViewItemClickListener() {
@@ -66,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void loadData() {
         bookList.clear();
-        bookList.add(new Book(getResources().getString(R.string.rock_star_developer), getResources().getString(R.string.author_ei_maung), PreferenceUtils.getPreferenceInteger(this, Constants.PREF_ROCKSTAR_DEVELOPER), R.drawable.background_indigo));
+        bookList.add(new Book(getResources().getString(R.string.rock_star_developer), getResources().getString(R.string.author_ei_maung), PreferenceUtils.getPreferenceInteger(this, Constants.PREF_ROCKSTAR_DEVELOPER), R.drawable.dev));
         bookList.add(new Book(getResources().getString(R.string.color_theory), getResources().getString(R.string.author_u_thit_lwin_soe), PreferenceUtils.getPreferenceInteger(this, Constants.PREF_COLOR_THEORY), R.drawable.ic_color_theory));
         bookList.add(new Book(getResources().getString(R.string.professional_web_developer), getResources().getString(R.string.author_ei_maung), PreferenceUtils.getPreferenceInteger(this, Constants.PREF_PROFESSIONAL_WEB_DEVELOPER), R.drawable.pro_web_dev));
         bookList.add(new Book(getResources().getString(R.string.learning_web_design), getResources().getString(R.string.author_u_thaung_lwin), PreferenceUtils.getPreferenceInteger(this, Constants.PREF_WEB_DESIGN), R.drawable.web_design));
@@ -82,6 +85,8 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(layoutManager);
         adapter.setOnItemClickListener(recyclerViewOnItemClickListener);
+        constraintLayout = findViewById(R.id.constraintLayout);
+        constraintLayout.startAnimation(AnimationUtils.loadAnimation(this, R.anim.translate_anim));
     }
 
     @Override

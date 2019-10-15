@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_below="@+id/rockStar"
     android:clickable="true"
     android:focusable="true"
     android:foreground="?attr/selectableItemBackground"
@@ -20,7 +19,6 @@
             android:layout_width="@dimen/img_icon"
             android:layout_height="@dimen/img_icon"
             android:layout_marginTop="@dimen/marginNormal"
-            android:background="@drawable/background_orange"
             android:src="@drawable/ic_color_theory" />
 
 

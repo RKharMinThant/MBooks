@@ -40,7 +40,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     public void setData(List<Book> bookList) {
-        this.bookList = bookList;
+        this.bookList.clear();
+        this.bookList.addAll(bookList);
         notifyDataSetChanged();
     }
 
